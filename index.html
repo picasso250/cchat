@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 20px;
+            /* 增加整体边距 */
+        }
+
+        h1 {
+            color: #333;
+            /* 保持一致的颜色搭配 */
+        }
+
+        p {
+            line-height: 1.5;
+            /* 改善排版，调整段落行高 */
+            margin-bottom: 15px;
+            /* 增加段落下边距 */
+        }
+
+        div {
+            margin-bottom: 15px;
+            /* 增加div元素之间的边距 */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            /* 美化输入框和按钮 */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            /* 优化按钮样式，设置背景颜色 */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            /* 应用CSS过渡效果 */
+        }
+
+        button:hover {
+            background-color: #45a049;
+            /* 按钮悬停效果 */
+        }
+
+        #msgError {
+            color: #ff0000;
+            /* 错误消息颜色 */
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        a {
+            color: #007BFF;
+            /* 链接颜色 */
+        }
+
+        a:hover {
+            text-decoration: underline;
+            /* 链接悬停效果 */
+        }
+
+        /* 单独的美化最后一个p元素的CSS代码 */
+        p.special-note {
+            color: #888;
+            /* 更不显眼的文字颜色 */
+            margin-top: 20px;
+            /* 增加段落上边距 */
+        }
+
+        /* 调整 user-name 和 sender 字体大小 */
+        .user-name,
+        .sender {
+            font-size: 0.9em;
+            /* 通过调整字体大小使其更小 */
+        }
+
+        /* 美化创建列表项中的类样式 */
+        .user-name {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        .sender {
+            color: #888;
+        }
+
+        .user-string {
+            margin-left: 10px;
+            line-height: 26px;
+        }
+    </style>
+    <title>CChat - 区块链上的聊天应用</title>
+</head>
+
+<body>
+    <h1>CChat - 区块链上的聊天应用</h1>
+    <p>欢迎使用 CChat！这是一个基于区块链的去中心化聊天应用，致力于提供安全、私密的即时通讯体验。</p>
+
+    <div>
+        <label for="nickname">设置昵称：</label>
+        <input type="text" id="nickname">
+        <button id="setNicknameButton">设置昵称</button>
+    </div>
+
+    <div>
+        <label for="input">输入消息：</label>
+        <input type="text" id="input">
+        <button id="sendMessageButton">发送消息</button>
+    </div>
+
+    <div id="msgError"></div>
+    <ul id="messageList"></ul>
+
+    <p class="special-note">请先安装MetaMask(小狐狸)插件，并切换到 Sepolia 测试链。确保你有足够的测试币，你可以从<a href="https://sepoliafaucet.com/"
+            target="_blank">Sepolia Faucet</a>获取测试币。</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
