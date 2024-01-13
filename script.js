@@ -21,7 +21,6 @@ if (contractAddressParam) {
     // 使用默认的contractAddress
     const defaultContractAddress = "0xffED8f99318F558fc360602cA091bB1011E4dAb8";
     contractAddress = defaultContractAddress;
-    console.log("未指定contractAddress，使用默认值：" + defaultContractAddress);
 }
 
 const contractABI = [
@@ -210,6 +209,13 @@ contract.events.MessageStored({
         // Create and prepend the new list item
         const messageList = document.getElementById("messageList");
         const listItem = createListItem(senderNickname, senderAddress, message);
-        messageList.insertBefore(listItem, messageList.firstChild);
+        messageList.appendChild(listItem);
+
     }
 });
+
+document.getElementById('scrollToBottomButton').addEventListener('click', function() {
+    // 将页面滚动到最底部
+    window.scrollTo(0, document.body.scrollHeight);
+  });
+  

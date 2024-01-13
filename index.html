@@ -83,6 +83,7 @@
             /* 更不显眼的文字颜色 */
             margin-top: 20px;
             /* 增加段落上边距 */
+            font-size: small;
         }
 
         /* 调整 user-name 和 sender 字体大小 */
@@ -120,17 +121,35 @@
         <button id="setNicknameButton">设置昵称</button>
     </div>
 
+    <div id="msgError"></div>
+    <ul id="messageList"></ul>
+
     <div>
         <label for="input">输入消息：</label>
         <input type="text" id="input">
         <button id="sendMessageButton">发送消息</button>
     </div>
 
-    <div id="msgError"></div>
-    <ul id="messageList"></ul>
+    <p class="special-note">请先安装MetaMask(小狐狸)插件，并切换到 Sepolia 测试链。确保你有足够的测试币，你可以从<a href="https://sepoliafaucet.com/" target="_blank">Alchemy Sepolia Faucet</a>
+        或者
+        <a href="https://www.infura.io/faucet/sepolia" target="_blank">Infura Sepolia Faucet</a>
+        获取测试币。</p>
 
-    <p class="special-note">请先安装MetaMask(小狐狸)插件，并切换到 Sepolia 测试链。确保你有足够的测试币，你可以从<a href="https://sepoliafaucet.com/"
-            target="_blank">Sepolia Faucet</a>获取测试币。</p>
+            <style>
+                #scrollToBottomButton {
+  position: fixed;
+  bottom: 20px; /* 距离底部的距离 */
+  right: 20px; /* 距离右侧的距离 */
+  padding: 10px;
+  background-color: #007bff; /* 按钮背景颜色 */
+  color: #fff; /* 按钮文字颜色 */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+            </style>
+            <button id="scrollToBottomButton">滚动到底部</button>
 
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
     <script src="script.js"></script>
