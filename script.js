@@ -142,10 +142,18 @@ document.getElementById("setNicknameButton").addEventListener("click", async () 
         // 调用智能合约的 setNickname 方法
         await contract.methods.setNickname(nicknameInput).send({ from: userAccount });
         console.log("Nickname set successfully:", nicknameInput);
+
+        // Save the nickname to local storage
+        localStorage.setItem("nickname", nicknameInput);
     } catch (error) {
         console.error("Error setting nickname:", error);
     }
 });
+// Load nickname from local storage and set it to the input
+const storedNickname = localStorage.getItem("nickname");
+if (storedNickname) {
+    document.getElementById("nickname").value = storedNickname;
+}
 
 // 更新发送消息按钮的点击事件监听器
 document.getElementById("sendMessageButton").addEventListener("click", async () => {
@@ -214,8 +222,8 @@ contract.events.MessageStored({
     }
 });
 
-document.getElementById('scrollToBottomButton').addEventListener('click', function() {
+document.getElementById('scrollToBottomButton').addEventListener('click', function () {
     // 将页面滚动到最底部
     window.scrollTo(0, document.body.scrollHeight);
-  });
-  
+    
+});
