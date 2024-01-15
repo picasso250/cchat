@@ -217,13 +217,34 @@ contract.events.MessageStored({
         // Create and prepend the new list item
         const messageList = document.getElementById("messageList");
         const listItem = createListItem(senderNickname, senderAddress, message);
-        messageList.appendChild(listItem);
 
+        // Set data-height attribute with blockchain height
+        listItem.setAttribute("data-height", event.blockNumber);
+
+        messageList.appendChild(listItem);
+        sortListByHeight(messageList);
     }
 });
+function sortListByHeight(ulElement) {
+    // Get all li elements within the ul
+    const liElements = Array.from(ulElement.getElementsByTagName('li'));
+
+    // Sort li elements based on data-height attribute
+    liElements.sort(function (a, b) {
+        const heightA = parseInt(a.getAttribute('data-height')) || 0;
+        const heightB = parseInt(b.getAttribute('data-height')) || 0;
+        return heightA - heightB;
+    });
+
+    // Remove existing li elements from the ul
+    liElements.forEach(li => ulElement.removeChild(li));
+
+    // Append sorted li elements back to the ul
+    liElements.forEach(li => ulElement.appendChild(li));
+}
 
 document.getElementById('scrollToBottomButton').addEventListener('click', function () {
     // 将页面滚动到最底部
     window.scrollTo(0, document.body.scrollHeight);
-    
+
 });
